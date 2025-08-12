@@ -1,0 +1,15 @@
+.input {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid rgba(156, 152, 152, 0.57);
+}
+
+.margin {
+  margin-top: 10px;
+}
+
+.checkbox {
+  margin-top: 10px;
+  margin-right: 10px;
+  scale: 1.5;
+}
