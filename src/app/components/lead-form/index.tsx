@@ -1,41 +1,79 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(supabaseUrl, supabaseAnon);
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
+// простые хелперы
+const clamp = (s: string, max: number) => s.slice(0, max);
+const isValidName = (s: string) => s.length >= 2 && s.length <= 80;
+const isValidTelegram = (s: string) => /^@?[A-Za-z0-9_]{3,32}$/.test(s);
 
 export default function LeadForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">(
     "idle"
   );
+  const [errorMsg, setErrorMsg] = useState("");
+  const sentRef = useRef(false); // антидубль на случай быстрых кликов
+
+  useEffect(() => {
+    if (status !== "loading") sentRef.current = false;
+  }, [status]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget; // <— фикс: сохраняем форму сразу
-    const fd = new FormData(form);
-    const name = String(fd.get("name") || "").trim();
-    let telegram = String(fd.get("telegram") || "").trim();
-    if (!name || !telegram) return;
+    if (sentRef.current) return; // блок двойного клика
+    sentRef.current = true;
 
-    if (!telegram.startsWith("@") && !telegram.startsWith("http")) {
-      telegram = "@" + telegram;
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+
+    // honeypot (скрытое поле): если заполнено — игнорим
+    if (String(fd.get("company") || "")) {
+      setStatus("ok");
+      form.reset();
+      return;
     }
 
-    setStatus("loading");
+    let name = clamp(String(fd.get("name") || "").trim(), 80);
+    let telegram = String(fd.get("telegram") || "").trim();
 
-    const { error } = await supabase
-      .from("contacts")
-      .insert([{ name, telegram }]); // можно добавить .select() если нужно вернуть запись
-
-    if (error) {
-      console.error(error);
+    // client-side валидация
+    if (!isValidName(name)) {
+      setErrorMsg("Имя должно быть от 2 до 80 символов.");
+      setStatus("error");
+      return;
+    }
+    if (!isValidTelegram(telegram)) {
+      setErrorMsg("Ник в Telegram — 3–32 символа: буквы/цифры/_. Можно без @.");
       setStatus("error");
       return;
     }
 
-    form.reset(); // безопасно — form сохранена до await
+    if (!telegram.startsWith("@")) telegram = "@" + telegram;
+
+    setStatus("loading");
+    setErrorMsg("");
+
+    const { error } = await supabase
+      .from("contacts")
+      .insert([{ name, telegram }]);
+
+    if (error) {
+      // частые случаи: уникальный ник уже есть
+      if ((error as any).code === "23505") {
+        setErrorMsg("Такой Telegram уже есть в списке.");
+      } else {
+        setErrorMsg(error.message || "Не удалось сохранить. Попробуйте позже.");
+      }
+      setStatus("error");
+      return;
+    }
+
+    form.reset();
     setStatus("ok");
   }
 
@@ -52,6 +90,16 @@ export default function LeadForm() {
           className="grid"
           style={{ gap: 12, marginTop: 12 }}
         >
+          {/* Honeypot (скрытое поле) */}
+          <input
+            type="text"
+            name="company"
+            tabIndex={-1}
+            autoComplete="off"
+            className="visuallyHidden"
+            aria-hidden="true"
+          />
+
           <div className="formRow cols-2">
             <div>
               <label htmlFor="name">Ваше имя</label>
@@ -100,7 +148,7 @@ export default function LeadForm() {
                 className="small"
                 style={{ color: "var(--danger)" }}
               >
-                Не вышло отправить. Напишите нам в Telegram.
+                {errorMsg || "Не вышло отправить. Попробуйте ещё раз."}
               </span>
             )}
           </div>
