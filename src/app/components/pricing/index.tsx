@@ -2,7 +2,7 @@ export default function Pricing() {
   return (
     <section id="pricing" className="section">
       <div className="container">
-        <h2 style={{ margin: "0 0 12px" }}>Форматы и цены</h2>
+        <h2 style={{ margin: "0 0 12px" }}>Формат и цены</h2>
         <div className="pricing">
           <div className="card priceCard">
             <div>
@@ -15,20 +15,13 @@ export default function Pricing() {
                 <li>Итоговый фидбек + план подготовки</li>
               </ul>
             </div>
-            <a
-              className="button primary"
-              href="#lead"
-              aria-label="Записаться на мок-интервью"
-            >
-              Записаться
-            </a>
           </div>
           <div className="card priceCard">
             <div>
               <h3>Индивидуальные консультации</h3>
               <div className="grid">
                 <div className="card" style={{ background: "#0c1219" }}>
-                  <b>Frontend</b>
+                  <b>Frontend developer</b>
                   <div className="price" style={{ fontSize: 22 }}>
                     5 000 ₽ / час
                   </div>
@@ -47,9 +40,6 @@ export default function Pricing() {
                 </div>
               </div>
             </div>
-            <a className="button ghost" href="#lead">
-              Нужна консультация
-            </a>
           </div>
         </div>
       </div>

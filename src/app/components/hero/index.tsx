@@ -1,4 +1,8 @@
+"use client";
+
 import Illustration from "./illustration";
+
+import { scrollToId } from "@/app/utils";
 
 export default function Hero() {
   return (
@@ -8,36 +12,33 @@ export default function Hero() {
           <div className="kvInner">
             <div>
               <span className="badge">
-                Реализм собеседования • Честный фидбек
+                Реализм собеседования • Подробный фидбек
               </span>
-              <h1>
-                Пройдите техническое собеседование… до того, как пройдёте его на
-                самом деле
-              </h1>
+              <h1>Проверка навыков в формате реального интервью</h1>
               <p>
                 Мок-интервью для фронтенд-разработчиков: JavaScript, TypeScript,
-                React, лайвкодинг. Два этапа, как в реальных компаниях.
+                React, Livecoding. Два этапа — оценка технических знаний и
+                навыков командного взаимодействия
               </p>
               <div className="cta">
-                <a className="button primary" href="#lead">
+                <a
+                  onClick={() => scrollToId("entry")}
+                  className="button primary"
+                >
                   Записаться на вводную
                 </a>
-                <a className="button ghost" href="#pricing">
-                  Посмотреть цены
+                <a className="button ghost" onClick={() => scrollToId("faq")}>
+                  Частые вопросы
                 </a>
               </div>
               <div className="kvStats">
                 <div className="stat">
-                  <b>70+ собеседований</b>
+                  <b>100+ собеседований</b>
                   <span>реальных тех. интервью</span>
                 </div>
                 <div className="stat">
                   <b>2 интервьюера</b>
-                  <span>инженер + техлид</span>
-                </div>
-                <div className="stat">
-                  <b>3 часа практики</b>
-                  <span>за 2 встречи</span>
+                  <span>разработчик + тех. лид</span>
                 </div>
               </div>
             </div>

@@ -25,8 +25,6 @@ export default function LeadForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (sentRef.current) return; // блок двойного клика
-    sentRef.current = true;
 
     const form = e.currentTarget;
     const fd = new FormData(form);
@@ -63,7 +61,6 @@ export default function LeadForm() {
       .insert([{ name, telegram }]);
 
     if (error) {
-      // частые случаи: уникальный ник уже есть
       if ((error as any).code === "23505") {
         setErrorMsg("Такой Telegram уже есть в списке.");
       } else {
@@ -78,7 +75,7 @@ export default function LeadForm() {
   }
 
   return (
-    <section id="lead" className="section">
+    <section id="entry" className="section">
       <div className="container">
         <h2 style={{ margin: "0 0 8px" }}>Записаться на бесплатную вводную</h2>
         <p className="small">

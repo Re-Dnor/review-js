@@ -14,7 +14,7 @@ export default function FAQ() {
     },
   ];
   return (
-    <section className="section">
+    <section id="faq" className="section">
       <div className="container grid">
         <h2 style={{ margin: "0 0 12px" }}>FAQ</h2>
         <div className="grid">
