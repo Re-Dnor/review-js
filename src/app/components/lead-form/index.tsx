@@ -2,6 +2,8 @@
 import { useState, useEffect, useRef } from "react";
 import { createClient } from "@supabase/supabase-js";
 
+import styles from "./index.module.css";
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -77,7 +79,9 @@ export default function LeadForm() {
   return (
     <section id="entry" className="section">
       <div className="container">
-        <h2 style={{ margin: "0 0 8px" }}>Записаться на бесплатную вводную</h2>
+        <h2 style={{ margin: "0 0 8px" }}>
+          Записаться на бесплатную вводную консультацию
+        </h2>
         <p className="small">
           15–30 минут. Разберём ваш запрос и подберём формат подготовки.
         </p>
@@ -106,6 +110,7 @@ export default function LeadForm() {
                 required
                 placeholder="Иван"
                 autoComplete="name"
+                className={styles.input}
               />
             </div>
             <div>
@@ -115,6 +120,7 @@ export default function LeadForm() {
                 name="telegram"
                 required
                 placeholder="@nickname"
+                className={styles.input}
               />
             </div>
           </div>
@@ -149,12 +155,34 @@ export default function LeadForm() {
               </span>
             )}
           </div>
+          <label
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              fontSize: "14px",
+            }}
+          >
+            <input
+              type="checkbox"
+              name="consent"
+              required={true}
+              className={styles.checkbox}
+            />
+            <span className={styles.margin}>
+              Я соглашаюсь с{" "}
+              <a
+                href="/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "underline", color: "#2563eb" }}
+              >
+                политикой конфиденциальности
+              </a>{" "}
+              и даю согласие на обработку персональных данных
+            </span>
+          </label>
         </form>
-
-        <p className="small" style={{ marginTop: 8 }}>
-          Отправляя данные, вы соглашаетесь на обработку персональных данных.
-          Никакого спама.
-        </p>
       </div>
     </section>
   );
