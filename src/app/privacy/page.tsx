@@ -37,11 +37,9 @@ export default function PrivacyPage() {
           Обработчиком персональных данных является <strong>Исполнитель</strong>{" "}
           — лицо, предоставляющее услугу проведения мок-собеседования. Контакт
           для обращений по персональным данным:{" "}
-          <strong>email@example.com</strong>.
+          <strong>mokshinre@yandex.ru</strong>.
         </p>
-        <p style={{ fontSize: 14, color: "#666" }}>
-          {/* TODO: Замените на ваши данные: ФИО/название, ИНН (если есть), город/страна, контактный email. */}
-        </p>
+        <p style={{ fontSize: 14, color: "#666" }}></p>
       </section>
 
       <section>
@@ -144,7 +142,7 @@ export default function PrivacyPage() {
         </ul>
         <p>
           Для реализации прав свяжитесь с нами:{" "}
-          <strong>email@example.com</strong> (укажите «Персональные данные» в
+          <strong>mokshinre@yandex.ru</strong> (укажите «Персональные данные» в
           теме письма).
         </p>
       </section>
@@ -164,7 +162,7 @@ export default function PrivacyPage() {
       <p style={{ fontSize: 14, color: "#666" }}>
         Последнее обновление: 13 августа 2025. Если у вас остались вопросы по
         обработке данных или содержанию этой Политики, напишите нам:{" "}
-        <strong>email@example.com</strong>.
+        <strong>mokshinre@yandex.ru</strong>.
       </p>
     </main>
   );

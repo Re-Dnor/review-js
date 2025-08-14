@@ -140,7 +140,7 @@ export default function OfertaPage() {
         <h2>9. Реквизиты и контакты</h2>
         <p>
           Исполнители: Александр Мокшин / Кирилл Павлик <br />
-          Email: email@example.com <br />
+          Email: mokshinre@yandex.ru <br />
           telegram: @awmokshin / @shoom1337
           <br />
           Город: Санкт-Петербург

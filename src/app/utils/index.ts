@@ -1,4 +1,4 @@
-export function scrollToId(id: string, offset = 20) {
+export function scrollToId(id: string, offset = 5) {
   const el = document.getElementById(id);
   if (!el) return;
   const y = el.getBoundingClientRect().top + window.scrollY - offset;
