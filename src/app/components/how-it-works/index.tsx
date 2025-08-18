@@ -5,7 +5,7 @@ export default function HowItWorks() {
         <h2 style={{ margin: "0 0 12px" }}>Как это проходит</h2>
         <div className="grid cols-2">
           <div className="card">
-            <h3>1. Вводная (15–30 мин)</h3>
+            <h3>1. Вводная (≈30 мин)</h3>
             <p>Бесплатно. Узнаём цель и уровень, собираем ожидания.</p>
           </div>
           <div className="card">
