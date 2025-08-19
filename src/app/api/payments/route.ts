@@ -1,14 +1,13 @@
 import { NextResponse } from "next/server";
 
 const PRICE = 2000000; // 20 000 ₽
-const TEST_PRICE = 500;
 
 export async function POST(req: Request) {
   try {
     const { description = "Оплата услуги", metadata = {} } = await req.json();
 
     // >>> ВАЖНО: игнорируем любые amount из клиента <<<
-    const amountKopeks = TEST_PRICE;
+    const amountKopeks = PRICE;
 
     const shopId = process.env.YOOKASSA_SHOP_ID!;
     const secret = process.env.YOOKASSA_SECRET_KEY!;
