@@ -16,7 +16,7 @@ export default function Pricing() {
                 <li>Финальное интервью: роль в команде, софт-скиллы</li>
                 <li>Итоговый фидбек + план подготовки</li>
               </ul>
-              {/* <PayButton /> */}
+              <PayButton />
             </div>
           </div>
           <div className="card priceCard">

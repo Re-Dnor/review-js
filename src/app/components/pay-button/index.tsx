@@ -16,7 +16,6 @@ export default function PayButton() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          amount: 2000000, // КОПЕЙКИ: 20 000 ₽ = 2 000 000
           description: "Мок-интервью (2 этапа)",
           metadata: { product: "mock_interview_2_steps" },
         }),
