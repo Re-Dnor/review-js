@@ -5,6 +5,7 @@ import HowItWorks from "./components/how-it-works";
 import LeadForm from "./components/lead-form";
 import Pricing from "./components/pricing";
 import Trust from "./components/trust";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function Page() {
   return (
@@ -17,6 +18,7 @@ export default function Page() {
         <Pricing />
         <LeadForm />
         <FAQ />
+        <Analytics />
       </main>
     </>
   );
