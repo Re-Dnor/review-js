@@ -2,6 +2,7 @@
 import { useState } from "react";
 
 import styles from "./index.module.css";
+import { track } from "@vercel/analytics";
 
 export default function PayButton() {
   const [loading, setLoading] = useState(false);
@@ -10,7 +11,7 @@ export default function PayButton() {
     if (loading) return;
 
     setLoading(true);
-
+    track("Клик на кнопку оплаты");
     try {
       const res = await fetch("/api/payments", {
         method: "POST",

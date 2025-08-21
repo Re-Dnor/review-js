@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { createClient } from "@supabase/supabase-js";
+import { track } from "@vercel/analytics";
 
 import styles from "./index.module.css";
 
@@ -27,7 +28,7 @@ export default function LeadForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
+    track("Клик на отправку своих данных");
     const form = e.currentTarget;
     const fd = new FormData(form);
 
