@@ -225,7 +225,7 @@ body {
   border-radius: 12px;
   border: 1px solid #1e2a37;
   background: #0e1620;
-  min-width: 140px;
+  min-width: 160px;
   flex: 1 1;
 }
 .stat b {
