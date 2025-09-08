@@ -6,11 +6,11 @@ export default function Pricing() {
       <div className="container">
         <h2 style={{ margin: "0 0 12px" }}>Формат и цены</h2>
         <div className="pricing">
-          <div className="card priceCard">
+          <div className="card priceCard accent">
             <div>
-              <h3>Мок-интервью (2 этапа)</h3>
+              <h3>Мок-интервью (полный пакет)</h3>
               <div className="price">20 000 ₽</div>
-              <ul className="list">
+              <ul className="list ">
                 <li>2 встречи по ~1.5 часа</li>
                 <li>Технический этап: JS/TS, React, лайвкодинг</li>
                 <li>Финальное интервью: роль в команде, софт-скиллы</li>

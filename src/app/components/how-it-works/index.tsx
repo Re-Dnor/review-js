@@ -1,32 +1,53 @@
+import styles from "./index.module.css";
+
 export default function HowItWorks() {
   return (
-    <section className="section">
-      <div className="container">
-        <h2 style={{ margin: "0 0 12px" }}>Как это проходит</h2>
-        <div className="grid cols-2">
-          <div className="card">
-            <h3>1. Вводная (≈30 мин)</h3>
-            <p>Бесплатно. Узнаём цель и уровень, собираем ожидания.</p>
-          </div>
-          <div className="card">
-            <h3>2. Технический этап (≈1.5 ч)</h3>
-            <p>
-              JS/TS, React, лайвкодинг на задачах уровня LeetCode. Без фидбека —
-              как в реальности.
+    <section className={styles.section} aria-labelledby="how-title">
+      <div className={styles.container}>
+        <h2 id="how-title" className={styles.title}>
+          Этапы интервью
+        </h2>
+
+        <div className={`${styles.grid} ${styles.cols2}`}>
+          {/* 1. Бесплатная вводная — акцент */}
+          <div className={`${styles.card} ${styles.accent} ${styles.span2}`}>
+            <h3 className={styles.cardTitle}>
+              1. Бесплатная вводная консультация{" "}
+            </h3>
+            <p className={styles.cardText}>
+              Бесплатно. Уточняем цель и уровень, подбираем формат подготовки и
+              ближайшие шаги
             </p>
           </div>
-          <div className="card">
-            <h3>3. Финальный этап (≈1.5 ч)</h3>
-            <p>
-              Поведенческие и продуктовые вопросы, системное мышление,
-              коммуникация.
+
+          {/* 2. Техэтап */}
+          <div className={styles.card}>
+            <h3 className={styles.cardTitle}>
+              2. Этап посвященный hard-скиллам
+            </h3>
+            <p className={styles.cardText}>
+              Задачи по JS/TS и React, лайвкодинг. Всё как на реальном
+              собеседовании — без подсказок и фидбека
             </p>
           </div>
-          <div className="card">
-            <h3>4. Развёрнутый фидбек</h3>
-            <p>
-              Что ок, что подтянуть, конкретные ресурсы и план подготовки на 2–4
-              недели.
+
+          {/* 3. Финалка (софты) */}
+          <div className={styles.card}>
+            <h3 className={styles.cardTitle}>
+              3. Этап посвященный soft-скиллам
+            </h3>
+            <p className={styles.cardText}>
+              Продуктовые и поведенческие вопросы, системное мышление,
+              коммуникация
+            </p>
+          </div>
+
+          {/* 4. Разбор + план */}
+          <div className={`${styles.card} ${styles.span2}`}>
+            <h3 className={styles.cardTitle}>4. Разбор и план развития</h3>
+            <p className={styles.cardText}>
+              Сильные и слабые стороны, что подтянуть, конкретные ресурсы и
+              персональный план подготовки
             </p>
           </div>
         </div>

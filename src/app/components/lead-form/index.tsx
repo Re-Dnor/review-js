@@ -80,11 +80,10 @@ export default function LeadForm() {
   return (
     <section id="entry" className="section">
       <div className="container">
-        <h2 style={{ margin: "0 0 8px" }}>
-          Записаться на бесплатную вводную консультацию
-        </h2>
+        <h2 style={{ margin: "0 0 8px" }}>Форма для связи</h2>
         <p className="small">
-          15–30 минут. Разберём ваш запрос и подберём формат подготовки.
+          Определим твой уровень, разберём цели и подскажем, с чего начать
+          подготовку
         </p>
 
         <form

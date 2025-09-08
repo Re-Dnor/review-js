@@ -70,7 +70,7 @@ body {
 .button.ghost {
   background: transparent;
   color: var(--text);
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
 }
 .button.ghost:hover {
   background: #141821;
@@ -84,6 +84,9 @@ body {
 
 @media (max-width: 768px) {
   .button.primary {
+    width: 100%;
+  }
+  .button.ghost {
     width: 100%;
   }
 }
@@ -366,4 +369,16 @@ label {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+.accent {
+  background: linear-gradient(
+      180deg,
+      rgba(90, 224, 176, 0.1),
+      rgba(90, 224, 176, 0.03)
+    ),
+    #0f141b;
+  border-width: 1px;
+  border-color: rgba(90, 224, 176, 0.45);
+  box-shadow: 0 8px 24px rgba(23, 116, 86, 0.22);
 }

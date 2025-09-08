@@ -3,6 +3,9 @@
 import Illustration from "./illustration";
 
 import { scrollToId } from "@/app/utils";
+import cn from "classnames";
+
+import styles from "./index.module.css";
 
 export default function Hero() {
   return (
@@ -14,21 +17,25 @@ export default function Hero() {
               <span className="badge">
                 Реализм собеседования • Подробный фидбек
               </span>
-              <h1>Проверка навыков в формате реального интервью</h1>
+              <h1>Подготовка, которая имитирует реальное собеседование</h1>
               <p>
-                Мок-интервью для фронтенд-разработчиков: JavaScript, TypeScript,
-                React, Livecoding. Два этапа — оценка технических знаний и
-                навыков командного взаимодействия
+                Сначала — технический этап: основы JS/TS, рабочие кейсы с React,
+                лайвкодинг. Затем — финальное интервью с проверкой коммуникации
+                и софт-скиллов. В завершение — разбор сильных и слабых сторон и
+                персональный план развития.
               </p>
               <div className="cta">
                 <a
                   onClick={() => scrollToId("entry")}
-                  className="button primary"
+                  className={cn("button", "primary", styles.width)}
                 >
-                  Записаться на вводную
+                  Записаться
                 </a>
-                <a className="button ghost" onClick={() => scrollToId("faq")}>
-                  Частые вопросы
+                <a
+                  className={cn("button", "ghost", styles.width)}
+                  onClick={() => scrollToId("faq")}
+                >
+                  FAQ
                 </a>
               </div>
               <div className="kvStats">

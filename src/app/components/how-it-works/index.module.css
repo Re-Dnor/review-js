@@ -1,0 +1,85 @@
+.section {
+  padding: 56px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding: 0 16px;
+}
+
+.title {
+  margin: 0 0 12px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.cols2 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .cols2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.card {
+  background: linear-gradient(180deg, #12151c, #0e1116);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.cardTitle {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: var(--text);
+}
+
+.dim {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.9em;
+  margin-left: 6px;
+}
+
+.cardText {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Акцент для бесплатной вводной */
+.accent {
+  background: linear-gradient(
+      180deg,
+      rgba(90, 224, 176, 0.1),
+      rgba(90, 224, 176, 0.03)
+    ),
+    #0f141b;
+  border-color: rgba(90, 224, 176, 0.45);
+  box-shadow: 0 8px 24px rgba(23, 116, 86, 0.22);
+}
+
+@media (min-width: 960px) {
+  /* Растягиваем первый шаг на всю строку на десктопе, чтобы он был в фокусе */
+  .span2 {
+    grid-column: 1 / -1;
+  }
+}
